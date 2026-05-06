@@ -40,14 +40,11 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
   bool isPressed = false;
   final List<double> centersOfEachTab = [];
 
-  late final double tabBoxWidth =
-      widget.containerWidth / widget.numOfTabs;
+  late final double tabBoxWidth = widget.containerWidth / widget.numOfTabs;
 
-  late final double expandedBoxWidth =
-      tabBoxWidth * widget.scaleToExpand;
+  late final double expandedBoxWidth = tabBoxWidth * widget.scaleToExpand;
 
-  late final double maximumX =
-      (widget.containerWidth - tabBoxWidth) / 2;
+  late final double maximumX = (widget.containerWidth - tabBoxWidth) / 2;
 
   late final double minimumX = -maximumX;
 
@@ -80,8 +77,7 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
 
   void onDragEnd(DragEndDetails _) {
     final closest = centersOfEachTab.reduce(
-          (a, b) =>
-      (positionX - a).abs() < (positionX - b).abs() ? a : b,
+      (a, b) => (positionX - a).abs() < (positionX - b).abs() ? a : b,
     );
 
     final index = centersOfEachTab.indexOf(closest);
@@ -95,8 +91,7 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
     });
   }
 
-  double get animatedSize =>
-      isPressed ? expandedBoxWidth : tabBoxWidth;
+  double get animatedSize => isPressed ? expandedBoxWidth : tabBoxWidth;
 
   void _onTapEachTab(int index) {
     widget.onSelectTab?.call(index);
@@ -114,10 +109,7 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
       child: Center(
         child: Stack(
           alignment: Alignment.center,
-          children: [
-            _buildBackgroundTabs(),
-            _buildAnimatedSelector(),
-          ],
+          children: [_buildBackgroundTabs(), _buildAnimatedSelector()],
         ),
       ),
     );
@@ -138,8 +130,8 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
             child: SizedBox(
               width: tabBoxWidth,
               height: tabBoxWidth,
-              child: widget.tabWidgets != null &&
-                  widget.tabWidgets!.length > index
+              child:
+                  widget.tabWidgets != null && widget.tabWidgets!.length > index
                   ? widget.tabWidgets![index]
                   : null,
             ),
@@ -155,12 +147,9 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
       curve: Curves.easeOut,
       transform: Matrix4.translationValues(positionX, 0, 0),
       child: GestureDetector(
-        onHorizontalDragStart:
-        widget.enabledDragFeature ? onDragStart : null,
-        onHorizontalDragUpdate:
-        widget.enabledDragFeature ? onDragUpdate : null,
-        onHorizontalDragEnd:
-        widget.enabledDragFeature ? onDragEnd : null,
+        onHorizontalDragStart: widget.enabledDragFeature ? onDragStart : null,
+        onHorizontalDragUpdate: widget.enabledDragFeature ? onDragUpdate : null,
+        onHorizontalDragEnd: widget.enabledDragFeature ? onDragEnd : null,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           width: animatedSize,
@@ -168,12 +157,10 @@ class _BarnBottomTabState extends State<BarnOwlBottomTab> {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: widget.tabColor,
-            borderRadius:
-            BorderRadius.circular(widget.borderRadius),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
             boxShadow: widget.tabBoxShadow,
           ),
-          child: widget.tabWidgets != null &&
-              widget.tabWidgets!.isNotEmpty
+          child: widget.tabWidgets != null && widget.tabWidgets!.isNotEmpty
               ? widget.tabWidgets![activeIndex]
               : null,
         ),
