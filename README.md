@@ -59,6 +59,10 @@ class DemoScreen extends StatelessWidget {
 }
 ```
 ---
+## 📸 Preview
+
+![Demo](https://github.com/TMC-IT-MOBILE/barn-bottom-tab/assets/bottom_tab_animated.gif)
+---
 ## 🛠️ TODO
 
 - Add glassmorphism (blur + transparency) support for tab and container
