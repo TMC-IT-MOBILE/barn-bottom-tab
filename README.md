@@ -61,12 +61,12 @@ class DemoScreen extends StatelessWidget {
 ---
 ## 🛠️ TODO
 
-- [ ] Add glassmorphism (blur + transparency) support for tab and container
-- [ ] Improve cross-platform blur consistency (Android & iOS)
-- [ ] Add customizable blur intensity (sigmaX, sigmaY)
-- [ ] Optional backdrop performance optimization
-- [ ] Add preset themes (glass, solid, minimal)
-- [ ] Add animation customization options
+- Add glassmorphism (blur + transparency) support for tab and container
+- Improve cross-platform blur consistency (Android & iOS)
+- Add customizable blur intensity (sigmaX, sigmaY)
+- Optional backdrop performance optimization
+- Add preset themes (glass, solid, minimal)
+- Add animation customization options
 ---
 ## 📦 Installation
 
